@@ -1,0 +1,18 @@
+<template name="Users">
+	<h3>Users</h3>
+	{{#if $.Session.get 'newUser'}}
+		{{> newUser}}
+	{{else}}
+		<button class="new-user">New User</button>
+	{{/if}}
+	<section class="users">
+	{{#if Template.subscriptionsReady}}
+		{{user}}
+		{{#each Users }}
+			{{createdAt}}
+		{{/each}}
+	{{else}}
+	<p>Loading</p>
+	{{/if}}
+	</section>
+</template>
